@@ -7,6 +7,8 @@ WORKDIR /app
 # 复制项目依赖列表并安装
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install gunicorn
+ENV PATH="/usr/local/bin:${PATH}"
 
 # 将应用程序代码复制到容器中
 COPY . .
